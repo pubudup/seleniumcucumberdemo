@@ -16,6 +16,20 @@ Feature: This is a demo feature
     And I click login button
     Then I should be logged in
 
+  Scenario Outline: Invalid user logins
+    Given I am on homepage
+    When I click on signin link
+    And I fill email address field with my email "<email>"
+    And I fill password field with my password "<password>"
+    And I click login button
+    Then I should see error message
+    Examples:
+      | email           | password |
+      | test1@test1.com | test     |
+      | test2@test      | test2    |
+      | test3           |          |
+      |                 | test4    |
+
     #Fill Textbox
     #Click Button
   Scenario: User performs a search on home page by filling search text box

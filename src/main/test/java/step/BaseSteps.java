@@ -251,4 +251,11 @@ public class BaseSteps {
         System.out.println("Confirmation message is :::" + confirmationMessage);
         assertTrue(confirmationMessage.contains("Your order on My Store is complete."));
     }
+
+
+    @Then("I should see error message")
+    public void iShouldSeeErrorMessage() {
+        AuthenticationPage authenticationPage = new AuthenticationPage(driver);
+        assertTrue(driver.getCurrentUrl().contains(authenticationPage.getURL()));
+    }
 }
